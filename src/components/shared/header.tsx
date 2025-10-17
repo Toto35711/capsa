@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Spade as Spades, Club as Clubs } from "lucide-react";
+import { useState } from "react";
+import { Spade as Spades, Club as Clubs, Menu, X } from "lucide-react";
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const sections = [
     { href: "/", label: "Beranda" },
     { href: "/aturan", label: "Proposal Aturan" },
@@ -25,8 +28,8 @@ export default function Header() {
           </h1>
         </div>
 
-        {/* Navigation links */}
-        <div className="flex gap-1 flex-wrap justify-end">
+        {/* Desktop navigation */}
+        <div className="hidden md:flex gap-1">
           {sections.map((section) => (
             <Link
               key={section.href}
@@ -37,7 +40,31 @@ export default function Header() {
             </Link>
           ))}
         </div>
+
+        {/* Mobile menu button */}
+        <button
+          className="md:hidden p-2 rounded hover:bg-primary-foreground hover:text-primary transition-colors"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
+
+      {/* Mobile navigation menu */}
+      {isOpen && (
+        <div className="md:hidden px-4 pb-4 space-y-2 bg-primary">
+          {sections.map((section) => (
+            <Link
+              key={section.href}
+              href={section.href}
+              className="block px-4 py-2 rounded hover:bg-primary-foreground hover:text-primary transition-colors"
+              onClick={() => setIsOpen(false)} // close menu on click
+            >
+              {section.label}
+            </Link>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }
