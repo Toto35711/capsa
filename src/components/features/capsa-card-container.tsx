@@ -14,7 +14,7 @@ export default function CapsaCardContainer({
 }: CapsaCardContainerProps) {
   return (
     <div className="mb-6">
-      {title && <h4 className="mb-2 font-semibold">{title}</h4>}
+      {title && <h4 className="mb-4 text-center font-semibold">{title}</h4>}
       <div className="flex gap-2">
         {cards.map((card, idx) => (
           <CapsaCard key={idx} rank={card.rank} suit={card.suit} />

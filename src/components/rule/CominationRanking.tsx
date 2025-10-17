@@ -7,7 +7,7 @@ export default function CombinationOrdering() {
   return (
     <section className="py-12">
       <h2 className="text-3xl font-bold mb-6 text-primary">
-        Urutan Kartu dan Kombinasi
+        3 Urutan Kartu dan Kombinasi
       </h2>
       <p className="mb-8 text-foreground/80">
         Dalam Capsa Indonesia, urutan kartu sangat penting untuk dapat
@@ -48,12 +48,10 @@ export default function CombinationOrdering() {
           Jika dua kombinasi memiliki nilai sama, urutan simbol digunakan untuk
           menentukan pemenang:
         </p>
-        <ul className="list-disc list-inside text-foreground/80 mb-4">
-          <li>
-            ♦ Wajik (diamond) &lt; ♣ Keriting (clubs) &lt; ♥ Hati (heart) &lt; ♠
-            Sekop (spades)
-          </li>
-        </ul>
+        <p className="text-foreground/80 font-mono mb-2">
+          ♦ Wajik (diamond) &lt; ♣ Keriting (clubs) &lt; ♥ Hati (heart) &lt; ♠
+          Sekop (spades)
+        </p>
         <CapsaCardContainer
           title="Contoh Urutan Simbol"
           cards={[
@@ -71,8 +69,8 @@ export default function CombinationOrdering() {
           Aturan Bermain Berdasarkan Urutan
         </h3>
         <p className="text-foreground/80 mb-4">
-          Pemain dapat memainkan kombinasi yang lebih tinggi dari kombinasi
-          sebelumnya.
+          Untuk dapat mengalahkan kombinasi lawan yang ada di meja, pemain harus
+          memainkan kombinasi yang lebih tinggi dari kombinasi tersebut.
         </p>
 
         <ul className="list-disc list-inside text-foreground/80 mb-6 space-y-2">
@@ -120,8 +118,8 @@ export default function CombinationOrdering() {
           </li>
           <li>
             <strong>Pasangan &lt; Pasangan:</strong> Pasangan hanya dapat
-            dilawan Pasangan lainnya. Pasangan dengan nilai lebih tinggi menang.
-            Simbol digunakan untuk perbandingan jika nilai seri.
+            dilawan Pasangan lainnya. Kombinasi dengan nilai lebih tinggi
+            menang. Jika nilai sama, simbol lebih tinggi menang.
             <div className="my-2">
               <CapsaCardComparison
                 left={{
@@ -163,14 +161,59 @@ export default function CombinationOrdering() {
           <li>
             <strong>Triple &lt; Triple:</strong> Triple hanya dapat dilawan
             Triple lainnya. Triple dengan nilai lebih tinggi menang.
-            <div className="my-2"></div>
+            <div className="my-2">
+              <CapsaCardComparison
+                left={{
+                  title: "Pasangan: 5♣ 5♥ 5♠",
+                  cards: [
+                    { rank: "5", suit: "♣" },
+                    { rank: "5", suit: "♥" },
+                    { rank: "5", suit: "♠" },
+                  ],
+                }}
+                right={{
+                  title: "Pasangan: 9♦ 9♠",
+                  cards: [
+                    { rank: "9", suit: "♦" },
+                    { rank: "9", suit: "♣" },
+                    { rank: "9", suit: "♠" },
+                  ],
+                }}
+                winner="right"
+              />
+            </div>
           </li>
           <li>
             <strong>Straight &lt; Straight / Flush / Full House:</strong>{" "}
-            straight dapat dikalahkan oleh straight yang lebih tinggi atau
+            Straight dapat dikalahkan oleh Straight yang lebih tinggi atau
             kombinasi dengan peringkat lebih tinggi (Flush, Full House, Four of
-            a Kind, Straight Flush).
+            a Kind, Straight Flush). Untuk dua Straight dengan urutan nilai
+            sama, nilai tertinggi dibandingkan untuk melihat kombinasi mana yang
+            lebih tinggi.
             <div className="my-2">
+              <CapsaCardComparison
+                left={{
+                  title: "Straight: 3♠-4♦-5♣-6♣-7♦",
+                  cards: [
+                    { rank: "3", suit: "♠" },
+                    { rank: "4", suit: "♦" },
+                    { rank: "5", suit: "♣" },
+                    { rank: "6", suit: "♣" },
+                    { rank: "7", suit: "♦" },
+                  ],
+                }}
+                right={{
+                  title: "Straight: 3♦-4♥-5♦-6♦-7♠",
+                  cards: [
+                    { rank: "3", suit: "♦" },
+                    { rank: "4", suit: "♥" },
+                    { rank: "5", suit: "♦" },
+                    { rank: "6", suit: "♦" },
+                    { rank: "7", suit: "♠" },
+                  ],
+                }}
+                winner="right"
+              />
               <CapsaCardComparison
                 left={{
                   title: "Straight: 3♠-7♠",
@@ -183,9 +226,9 @@ export default function CombinationOrdering() {
                   ],
                 }}
                 right={{
-                  title: "Flush: 3♥-6♥-7♥-9♥-A♥",
+                  title: "Flush: 4♥-6♥-7♥-9♥-A♥",
                   cards: [
-                    { rank: "3", suit: "♥" },
+                    { rank: "4", suit: "♥" },
                     { rank: "6", suit: "♥" },
                     { rank: "7", suit: "♥" },
                     { rank: "9", suit: "♥" },
@@ -201,13 +244,13 @@ export default function CombinationOrdering() {
               Flush &lt; Flush / Full House / Four of a Kind / Straight Flush:
             </strong>{" "}
             Flush dapat dikalahkan oleh Flush lebih tinggi atau kombinasi
-            peringkat lebih tinggi.
+            peringkat lebih tinggi (Full House, Four of a Kind, Straight Flush).
             <div className="my-2">
               <CapsaCardComparison
                 left={{
-                  title: "Flush: 3♥-6♥-7♥-9♥-A♥",
+                  title: "Flush: 4♥-6♥-7♥-9♥-A♥",
                   cards: [
-                    { rank: "3", suit: "♥" },
+                    { rank: "4", suit: "♥" },
                     { rank: "6", suit: "♥" },
                     { rank: "7", suit: "♥" },
                     { rank: "9", suit: "♥" },
@@ -233,7 +276,9 @@ export default function CombinationOrdering() {
               Full House &lt; Full House / Four of a Kind / Straight Flush:
             </strong>{" "}
             Full House dapat dikalahkan oleh Full House lebih tinggi atau
-            kombinasi peringkat lebih tinggi.
+            kombinasi peringkat lebih tinggi (Four of a Kind, Straight Flush).
+            Untuk membandingkan dua Full House, yang diperhatikan adalah kartu
+            dengan tiga nilai yang sama.
             <div className="my-2">
               <CapsaCardComparison
                 left={{
@@ -247,7 +292,7 @@ export default function CombinationOrdering() {
                   ],
                 }}
                 right={{
-                  title: "Four of a Kind: 9♠-9♣-9♦-9♥ + 2♠",
+                  title: "Full House: Q♠-Q♦-Q♥+3♣-3♦",
                   cards: [
                     { rank: "Q", suit: "♠" },
                     { rank: "Q", suit: "♦" },

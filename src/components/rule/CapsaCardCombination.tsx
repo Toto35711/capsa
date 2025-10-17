@@ -4,7 +4,9 @@ import CapsaCardContainer from "../features/capsa-card-container";
 export default function CapsaCardCombination() {
   return (
     <section className="py-12">
-      <h2 className="text-3xl font-bold mb-6 text-primary">Kombinasi Kartu</h2>
+      <h2 className="text-3xl font-bold mb-6 text-primary">
+        2 Kombinasi Kartu
+      </h2>
       <p className="mb-12 text-foreground/80">
         Berikut adalah kombinasi kartu yang digunakan dalam Capsa Indonesia
         beserta contoh visualnya.
@@ -13,7 +15,10 @@ export default function CapsaCardCombination() {
       {/* Tunggal */}
       <div className="mb-10">
         <h3 className="text-xl font-semibold mb-2">Tunggal</h3>
-        <p className="text-foreground/80 mb-4">Satu kartu tunggal.</p>
+        <p className="text-foreground/80 mb-4">
+          Satu kartu tunggal. Untuk alasan kemudahan menulis, dalam hal ini satu
+          kartu pun juga disebut sebagai kombinasi.
+        </p>
         <CapsaCardContainer
           title="Contoh Tunggal"
           cards={[{ rank: "7", suit: "♣" }]}

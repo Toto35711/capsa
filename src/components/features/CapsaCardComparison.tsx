@@ -22,9 +22,6 @@ export default function CapsaCardComparison({
     <div className="flex flex-col md:flex-row items-center gap-6 my-6">
       {/* Left combination */}
       <div className={`border-2 p-4 rounded ${getBorderClass("left")} flex-1`}>
-        {left.title && (
-          <h4 className="text-center font-semibold mb-2">{left.title}</h4>
-        )}
         <CapsaCardContainer cards={left.cards} title={left.title} />
         {winner === "left" && (
           <p className="text-center text-green-600 font-bold mt-2">Menang</p>
@@ -35,9 +32,6 @@ export default function CapsaCardComparison({
 
       {/* Right combination */}
       <div className={`border-2 p-4 rounded ${getBorderClass("right")} flex-1`}>
-        {right.title && (
-          <h4 className="text-center font-semibold mb-2">{right.title}</h4>
-        )}
         <CapsaCardContainer cards={right.cards} title={right.title} />
         {winner === "right" && (
           <p className="text-center text-green-600 font-bold mt-2">Menang</p>
