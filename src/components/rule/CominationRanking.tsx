@@ -122,20 +122,20 @@ export default function CombinationOrdering() {
             </div>
           </li>
           <li>
-            <strong>Double &lt; Double:</strong> Double hanya dapat dilawan
-            Double lain dengan nilai lebih tinggi atau Double lain dengan nilai
-            sama tetapi simbol lebih tinggi.
+            <strong>Pair &lt; Pair:</strong> Pair hanya dapat dilawan Pair lain
+            dengan nilai lebih tinggi atau Pair lain dengan nilai sama tetapi
+            simbol lebih tinggi.
             <div className="my-2">
               <CapsaCardComparison
                 left={{
-                  title: "Double",
+                  title: "Pair",
                   cards: [
                     { rank: "5", suit: "♣" },
                     { rank: "5", suit: "♥" },
                   ],
                 }}
                 right={{
-                  title: "Double",
+                  title: "Pair",
                   cards: [
                     { rank: "9", suit: "♦" },
                     { rank: "9", suit: "♠" },
@@ -146,14 +146,14 @@ export default function CombinationOrdering() {
 
               <CapsaCardComparison
                 left={{
-                  title: "Double",
+                  title: "Pair",
                   cards: [
                     { rank: "5", suit: "♣" },
                     { rank: "5", suit: "♥" },
                   ],
                 }}
                 right={{
-                  title: "Double",
+                  title: "Pair",
                   cards: [
                     { rank: "5", suit: "♦" },
                     { rank: "5", suit: "♠" },

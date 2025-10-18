@@ -12,27 +12,27 @@ export default function CapsaCardCombination() {
         beserta contoh visualnya.
       </p>
 
-      {/* Tunggal */}
+      {/* Single */}
       <div className="mb-10">
-        <h3 className="text-xl font-semibold mb-2">Tunggal</h3>
+        <h3 className="text-xl font-semibold mb-2">Single</h3>
         <p className="text-foreground/80 mb-4">
-          Satu kartu tunggal. Untuk alasan kemudahan menulis, dalam hal ini satu
+          Satu kartu Single. Untuk alasan kemudahan menulis, dalam hal ini satu
           kartu pun juga disebut sebagai kombinasi.
         </p>
         <CapsaCardContainer
-          title="Contoh Tunggal"
+          title="Contoh Single"
           cards={[{ rank: "7", suit: "♣" }]}
         />
       </div>
 
-      {/* Pasangan */}
+      {/* Pair */}
       <div className="mb-10">
-        <h3 className="text-xl font-semibold mb-2">Pasangan</h3>
+        <h3 className="text-xl font-semibold mb-2">Pair</h3>
         <p className="text-foreground/80 mb-4">
           Dua kartu dengan nilai yang sama.
         </p>
         <CapsaCardContainer
-          title="Contoh Pasangan"
+          title="Contoh Pair"
           cards={[
             { rank: "9", suit: "♠" },
             { rank: "9", suit: "♥" },
@@ -113,7 +113,7 @@ export default function CapsaCardCombination() {
       <div className="mb-10">
         <h3 className="text-xl font-semibold mb-2">Full House</h3>
         <p className="text-foreground/80 mb-4">
-          Tiga kartu dengan nilai sama ditambah satu pasangan.
+          Tiga kartu dengan nilai sama ditambah satu Pair.
         </p>
         <CapsaCardContainer
           title="Contoh Full House"
@@ -131,7 +131,8 @@ export default function CapsaCardCombination() {
       <div className="mb-10">
         <h3 className="text-xl font-semibold mb-2">Four of a Kind</h3>
         <p className="text-foreground/80 mb-4">
-          Empat kartu dengan nilai sama ditambah satu kicker.
+          Empat kartu dengan nilai sama ditambah satu kartu bebas (disebut
+          kicker).
         </p>
         <CapsaCardContainer
           title="Contoh Four of a Kind"
