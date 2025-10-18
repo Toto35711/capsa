@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Spade as Spades, Club as Clubs, Menu, X } from "lucide-react";
+import Image from "next/image";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,8 +21,13 @@ export default function Header() {
         {/* Logo and title */}
         <div className="flex items-center gap-2">
           <div className="flex gap-1">
-            <Spades className="w-6 h-6" />
-            <Clubs className="w-6 h-6" />
+            <Image
+              src="/capsa-indonesia.png"
+              width={32}
+              height={32}
+              alt="Capsa Standar Indonesia"
+              className="rounded-lg"
+            />
           </div>
           <h1 className="text-xl font-bold">
             <Link href="/">Capsa Standar Indonesia</Link>

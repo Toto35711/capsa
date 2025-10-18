@@ -1,10 +1,8 @@
 "use client";
 
-import CapsaCardContainer from "@/components/features/capsa-card-container";
 import CapsaCardCombination from "@/components/rule/CapsaCardCombination";
 import CombinationOrdering from "@/components/rule/CominationRanking";
 import GameIntro from "@/components/rule/GameIntro";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Rules() {
   return (

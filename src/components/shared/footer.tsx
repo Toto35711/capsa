@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Spade as Spades, Club as Clubs, Mail } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   const links = [
@@ -17,8 +18,15 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Spades className="w-5 h-5" />
-              <Clubs className="w-5 h-5" />
+              <div className="flex gap-1">
+                <Image
+                  src="/capsa-indonesia.png"
+                  width={32}
+                  height={32}
+                  alt="Capsa Standar Indonesia"
+                  className="rounded-lg"
+                />
+              </div>
               <span className="font-bold">Capsa Standar Indonesia</span>
             </div>
             <p className="text-primary-foreground/80 text-sm">
@@ -57,8 +65,8 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/20 pt-8 text-center text-sm text-primary-foreground/70">
-          <p>© 2025 Capsa Standard Indonesia. All rights reserved.</p>
-          <p className="mt-2">♦♣ Mari bermain Capsa ♠♥</p>
+          <p>© 2025 Capsa Standar Indonesia. All rights reserved.</p>
+          <p className="mt-2">♦♣ Capsa ♠♥</p>
         </div>
       </div>
     </footer>

@@ -5,7 +5,7 @@ export default function CapsaCardCombination() {
   return (
     <section className="py-12">
       <h2 className="text-3xl font-bold mb-6 text-primary">
-        2 Kombinasi Kartu
+        2. Kombinasi Kartu
       </h2>
       <p className="mb-12 text-foreground/80">
         Berikut adalah kombinasi kartu yang digunakan dalam Capsa Indonesia
@@ -52,6 +52,23 @@ export default function CapsaCardCombination() {
             { rank: "Q", suit: "♠" },
             { rank: "Q", suit: "♦" },
             { rank: "Q", suit: "♥" },
+          ]}
+        />
+      </div>
+
+      {/* Bomb */}
+      <div className="mb-10">
+        <h3 className="text-xl font-semibold mb-2">Bom</h3>
+        <p className="text-foreground/80 mb-4">
+          Empat kartu dengan nilai yang sama.
+        </p>
+        <CapsaCardContainer
+          title="Contoh Bom"
+          cards={[
+            { rank: "Q", suit: "♦" },
+            { rank: "Q", suit: "♣" },
+            { rank: "Q", suit: "♥" },
+            { rank: "Q", suit: "♠" },
           ]}
         />
       </div>

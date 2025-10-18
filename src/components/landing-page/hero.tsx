@@ -44,9 +44,9 @@ export default function Hero() {
             </button>
           </Link>
 
-          <Link href="/tentang">
+          <Link href="/latar-belakang">
             <button className="px-8 py-3 cursor-pointer border-2 border-primary text-primary rounded font-semibold hover:bg-primary/5 transition-colors">
-              Tentang
+              Latar Belakang
             </button>
           </Link>
         </div>

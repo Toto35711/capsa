@@ -7,7 +7,7 @@ export default function CombinationOrdering() {
   return (
     <section className="py-12">
       <h2 className="text-3xl font-bold mb-6 text-primary">
-        3 Urutan Kartu dan Kombinasi
+        3. Urutan Kartu dan Kombinasi
       </h2>
       <p className="mb-8 text-foreground/80">
         Dalam Capsa Indonesia, urutan kartu sangat penting untuk dapat
@@ -75,29 +75,17 @@ export default function CombinationOrdering() {
 
         <ul className="list-disc list-inside text-foreground/80 mb-6 space-y-2">
           <li>
-            <strong>Tunggal &lt; Tunggal:</strong> Kartu tunggal hanya dapat
-            dilawan oleh kartu tunggal lainnya. Kartu dengan nilai lebih tinggi
-            menang. Jika nilai sama, simbol lebih tinggi menang.
+            <strong>Single &lt; Single:</strong> Kartu Single hanya dapat
+            dilawan oleh kartu Single lain dengan nilai lebih tinggi, nilai sama
+            dengan simbol lebih tinggi, atau Bom.
             <div className="my-2">
               <CapsaCardComparison
                 left={{
-                  title: "Single: 5♣",
-                  cards: [{ rank: "5", suit: "♣" }],
-                }}
-                right={{
-                  title: "Single: 7♦",
-                  cards: [{ rank: "7", suit: "♦" }],
-                }}
-                winner="right"
-              />
-
-              <CapsaCardComparison
-                left={{
-                  title: "Single: K♣",
+                  title: "Single",
                   cards: [{ rank: "K", suit: "♣" }],
                 }}
                 right={{
-                  title: "Single: 2♦",
+                  title: "Single",
                   cards: [{ rank: "2", suit: "♦" }],
                 }}
                 winner="right"
@@ -105,32 +93,49 @@ export default function CombinationOrdering() {
 
               <CapsaCardComparison
                 left={{
-                  title: "Single: 7♣",
+                  title: "Single",
                   cards: [{ rank: "7", suit: "♣" }],
                 }}
                 right={{
-                  title: "Single: 7♥",
+                  title: "Single",
                   cards: [{ rank: "7", suit: "♥" }],
+                }}
+                winner="right"
+              />
+
+              <CapsaCardComparison
+                left={{
+                  title: "Single",
+                  cards: [{ rank: "2", suit: "♠" }],
+                }}
+                right={{
+                  title: "Bom",
+                  cards: [
+                    { rank: "5", suit: "♦" },
+                    { rank: "5", suit: "♣" },
+                    { rank: "5", suit: "♥" },
+                    { rank: "5", suit: "♠" },
+                  ],
                 }}
                 winner="right"
               />
             </div>
           </li>
           <li>
-            <strong>Pasangan &lt; Pasangan:</strong> Pasangan hanya dapat
-            dilawan Pasangan lainnya. Kombinasi dengan nilai lebih tinggi
-            menang. Jika nilai sama, simbol lebih tinggi menang.
+            <strong>Double &lt; Double:</strong> Double hanya dapat dilawan
+            Double lain dengan nilai lebih tinggi atau Double lain dengan nilai
+            sama tetapi simbol lebih tinggi.
             <div className="my-2">
               <CapsaCardComparison
                 left={{
-                  title: "Pasangan: 5♣ 5♥",
+                  title: "Double",
                   cards: [
                     { rank: "5", suit: "♣" },
                     { rank: "5", suit: "♥" },
                   ],
                 }}
                 right={{
-                  title: "Pasangan: 9♦ 9♠",
+                  title: "Double",
                   cards: [
                     { rank: "9", suit: "♦" },
                     { rank: "9", suit: "♠" },
@@ -141,14 +146,14 @@ export default function CombinationOrdering() {
 
               <CapsaCardComparison
                 left={{
-                  title: "Pasangan: 5♣ 5♥",
+                  title: "Double",
                   cards: [
                     { rank: "5", suit: "♣" },
                     { rank: "5", suit: "♥" },
                   ],
                 }}
                 right={{
-                  title: "Pasangan: 5♦ 5♠",
+                  title: "Double",
                   cards: [
                     { rank: "5", suit: "♦" },
                     { rank: "5", suit: "♠" },
@@ -160,11 +165,11 @@ export default function CombinationOrdering() {
           </li>
           <li>
             <strong>Triple &lt; Triple:</strong> Triple hanya dapat dilawan
-            Triple lainnya. Triple dengan nilai lebih tinggi menang.
+            Triple lain dengan nilai yang lebih tinggi menang.
             <div className="my-2">
               <CapsaCardComparison
                 left={{
-                  title: "Pasangan: 5♣ 5♥ 5♠",
+                  title: "Triple",
                   cards: [
                     { rank: "5", suit: "♣" },
                     { rank: "5", suit: "♥" },
@@ -172,10 +177,54 @@ export default function CombinationOrdering() {
                   ],
                 }}
                 right={{
-                  title: "Pasangan: 9♦ 9♠",
+                  title: "Triple",
                   cards: [
                     { rank: "9", suit: "♦" },
                     { rank: "9", suit: "♣" },
+                    { rank: "9", suit: "♠" },
+                  ],
+                }}
+                winner="right"
+              />
+            </div>
+          </li>
+          <li>
+            <strong>Bom &lt; Bom:</strong> Bom hanya dapat dilawan Bom lain
+            dengan nilai yang lebih tinggi menang. Bom juga dapat digunakan
+            untuk mengalahkan Single dengan nilai apapun (termasuk 2).
+            <div className="my-2">
+              <CapsaCardComparison
+                left={{
+                  title: "Bom",
+                  cards: [
+                    { rank: "5", suit: "♦" },
+                    { rank: "5", suit: "♣" },
+                    { rank: "5", suit: "♥" },
+                    { rank: "5", suit: "♠" },
+                  ],
+                }}
+                right={{
+                  title: "Bom",
+                  cards: [
+                    { rank: "9", suit: "♦" },
+                    { rank: "9", suit: "♣" },
+                    { rank: "9", suit: "♥" },
+                    { rank: "9", suit: "♠" },
+                  ],
+                }}
+                winner="right"
+              />
+              <CapsaCardComparison
+                left={{
+                  title: "Bom",
+                  cards: [{ rank: "A", suit: "♦" }],
+                }}
+                right={{
+                  title: "Bom",
+                  cards: [
+                    { rank: "9", suit: "♦" },
+                    { rank: "9", suit: "♣" },
+                    { rank: "9", suit: "♥" },
                     { rank: "9", suit: "♠" },
                   ],
                 }}
@@ -193,7 +242,7 @@ export default function CombinationOrdering() {
             <div className="my-2">
               <CapsaCardComparison
                 left={{
-                  title: "Straight: 3♠-4♦-5♣-6♣-7♦",
+                  title: "Straight",
                   cards: [
                     { rank: "3", suit: "♠" },
                     { rank: "4", suit: "♦" },
@@ -203,7 +252,7 @@ export default function CombinationOrdering() {
                   ],
                 }}
                 right={{
-                  title: "Straight: 3♦-4♥-5♦-6♦-7♠",
+                  title: "Straight",
                   cards: [
                     { rank: "3", suit: "♦" },
                     { rank: "4", suit: "♥" },
@@ -216,7 +265,7 @@ export default function CombinationOrdering() {
               />
               <CapsaCardComparison
                 left={{
-                  title: "Straight: 3♠-7♠",
+                  title: "Straight",
                   cards: [
                     { rank: "3", suit: "♠" },
                     { rank: "4", suit: "♥" },
@@ -226,7 +275,7 @@ export default function CombinationOrdering() {
                   ],
                 }}
                 right={{
-                  title: "Flush: 4♥-6♥-7♥-9♥-A♥",
+                  title: "Flush",
                   cards: [
                     { rank: "4", suit: "♥" },
                     { rank: "6", suit: "♥" },
@@ -248,7 +297,7 @@ export default function CombinationOrdering() {
             <div className="my-2">
               <CapsaCardComparison
                 left={{
-                  title: "Flush: 4♥-6♥-7♥-9♥-A♥",
+                  title: "Flush",
                   cards: [
                     { rank: "4", suit: "♥" },
                     { rank: "6", suit: "♥" },
@@ -258,7 +307,7 @@ export default function CombinationOrdering() {
                   ],
                 }}
                 right={{
-                  title: "Full House: J♠-J♦-J♥ + 7♣-7♦",
+                  title: "Full House",
                   cards: [
                     { rank: "J", suit: "♠" },
                     { rank: "J", suit: "♦" },
@@ -282,7 +331,7 @@ export default function CombinationOrdering() {
             <div className="my-2">
               <CapsaCardComparison
                 left={{
-                  title: "Full House: J♠-J♦-J♥ + 7♣-7♦",
+                  title: "Full House",
                   cards: [
                     { rank: "J", suit: "♠" },
                     { rank: "J", suit: "♦" },
@@ -292,7 +341,7 @@ export default function CombinationOrdering() {
                   ],
                 }}
                 right={{
-                  title: "Full House: Q♠-Q♦-Q♥+3♣-3♦",
+                  title: "Full House",
                   cards: [
                     { rank: "Q", suit: "♠" },
                     { rank: "Q", suit: "♦" },
@@ -306,7 +355,7 @@ export default function CombinationOrdering() {
 
               <CapsaCardComparison
                 left={{
-                  title: "Full House: J♠-J♦-J♥ + 7♣-7♦",
+                  title: "Full House",
                   cards: [
                     { rank: "J", suit: "♠" },
                     { rank: "J", suit: "♦" },
@@ -316,7 +365,7 @@ export default function CombinationOrdering() {
                   ],
                 }}
                 right={{
-                  title: "Four of a Kind: 9♠-9♣-9♦-9♥ + 2♠",
+                  title: "Four of a Kind",
                   cards: [
                     { rank: "9", suit: "♠" },
                     { rank: "9", suit: "♥" },
@@ -338,7 +387,7 @@ export default function CombinationOrdering() {
             <div className="my-2">
               <CapsaCardComparison
                 left={{
-                  title: "Four of a Kind: 9♠-9♣-9♦-9♥ + 2♠",
+                  title: "Four of a Kind",
                   cards: [
                     { rank: "9", suit: "♠" },
                     { rank: "9", suit: "♥" },
@@ -348,7 +397,7 @@ export default function CombinationOrdering() {
                   ],
                 }}
                 right={{
-                  title: "Straight Flush: 9♠-K♠",
+                  title: "Straight Flush",
                   cards: [
                     { rank: "9", suit: "♠" },
                     { rank: "10", suit: "♠" },
@@ -362,12 +411,12 @@ export default function CombinationOrdering() {
             </div>
           </li>
           <li>
-            <strong>Straight Flush:</strong> kombinasi tertinggi, hanya
-            dikalahkan oleh straight flush lebih tinggi.
+            <strong>Straight Flush:</strong> kombinasi tertinggi untuk kombinasi
+            lima kartu, hanya dikalahkan oleh straight flush lebih tinggi.
             <div className="my-2">
               <CapsaCardComparison
                 left={{
-                  title: "Straight Flush: 9♠-K♠",
+                  title: "Straight Flush",
                   cards: [
                     { rank: "9", suit: "♠" },
                     { rank: "10", suit: "♠" },
@@ -377,7 +426,7 @@ export default function CombinationOrdering() {
                   ],
                 }}
                 right={{
-                  title: "Straight Flush: 10♦-A♦",
+                  title: "Straight Flush",
                   cards: [
                     { rank: "10", suit: "♦" },
                     { rank: "J", suit: "♦" },
