@@ -3,6 +3,7 @@
 import CapsaCardCombination from "@/components/rule/CapsaCardCombination";
 import CombinationRationale from "@/components/rule/CombinationRationale";
 import CombinationOrdering from "@/components/rule/CominationRanking";
+import FundamentalsOfProbability from "@/components/rule/FundamentalsOfProbability";
 import GameIntro from "@/components/rule/GameIntro";
 import MainGoal from "@/components/rule/MainGoal";
 import Terminology from "@/components/rule/Terminology";
@@ -24,6 +25,7 @@ export default function Rules() {
           <GameIntro />
           <CapsaCardCombination />
           <CombinationOrdering />
+          <FundamentalsOfProbability />
           <CombinationRationale />
         </div>
       </div>

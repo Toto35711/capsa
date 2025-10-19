@@ -8,87 +8,12 @@ export default function CombinationRationale() {
   return (
     <section className="py-12">
       <h2 className="text-3xl font-bold mb-6 text-primary">
-        4. Rasionalisasi Aturan
+        5. Rasionalisasi Aturan
       </h2>
-      {/* Basic Probability Theory */}
-      <div className="mb-8">
-        <h3 className="text-2xl font-semibold mb-4 text-primary">
-          {" "}
-          4.1. Dasar Teori Peluang{" "}
-        </h3>{" "}
-        <p className="text-foreground/80 mb-4">
-          {" "}
-          Untuk menganalisis tingkat kelangkaan kombinasi kartu secara
-          matematis, kita menggunakan konsep dasar dalam teori peluang. Peluang
-          suatu <strong>kejadian</strong> didefinisikan sebagai perbandingan
-          antara banyaknya cara terjadinya kejadian tersebut dengan banyaknya
-          seluruh hasil yang mungkin terjadi dalam <strong>ruang sampel</strong>
-          .{" "}
-        </p>{" "}
-        <div className="mb-6">
-          <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
-            <BlockMath
-              math={String.raw`
-      \begin{align*}
-      P(\text{A}) &= \dfrac{|A|}{|S|} \\[6pt]
-      \end{align*}
-    `}
-            />
-          </pre>
-        </div>{" "}
-        <p className="text-foreground/80 mb-4"> Dalam hal ini: </p>{" "}
-        <ul className="list-disc list-inside text-foreground/80 mb-4 space-y-2">
-          <li>
-            <InlineMath math="S" /> disebut <strong>ruang sampel</strong>, yaitu
-            himpunan semua hasil yang mungkin terjadi dari suatu percobaan.
-          </li>
-          <li>
-            <InlineMath math="A" /> disebut <strong>kejadian</strong>, yaitu
-            himpunan bagian dari <InlineMath math="S" /> yang memuat hasil-hasil
-            dengan sifat tertentu.
-          </li>
-          <li>
-            <InlineMath math="|S|" /> menyatakan banyaknya elemen dalam ruang
-            sampel.
-          </li>
-          <li>
-            <InlineMath math="|A|" /> menyatakan banyaknya elemen yang termasuk
-            dalam kejadian.
-          </li>
-        </ul>
-      </div>
-      {/* Probability Model subsection */}
-      <div className="mb-8">
-        <h3 className="text-2xl font-semibold mb-4 text-primary">
-          4.2. Model Peluang Capsa
-        </h3>
-        <p className="mb-4 text-foreground/80">
-          Untuk memodelkan peluang kemunculan kombinasi kartu, kami menggunakan
-          model berbasis tangan pemain, yaitu setiap pemain menerima{" "}
-          <strong>13 kartu </strong>
-          dari total 52 kartu. peluang dihitung sebagai kemungkinan kombinasi
-          tertentu muncul dalam <strong>sebuah tangan 13 kartu</strong>.
-        </p>
-        <ul className="list-disc list-inside text-foreground/80 mb-4 space-y-2">
-          <li>
-            <strong>Single:</strong> peluang mendapatkan kartu tertentu (misal
-            2♠) di tangan 13 kartu.
-          </li>
-          <li>
-            <strong>Pair, Triple, dan kombinasi lain:</strong> peluang
-            mendapatkan kombinasi spesifik dalam tangan 13 kartu.
-          </li>
-          <li>
-            Dengan model ini, kita dapat membandingkan kombinasi yang berbeda
-            berdasarkan seberapa jarang kombinasi tersebut muncul di tangan
-            pemain, sehingga ranking kombinasi menjadi lebih rasional.
-          </li>
-        </ul>
-      </div>
       {/* Bomb subsection */}
       <div className="mb-8">
         <h3 className="text-2xl font-semibold mb-4 text-primary">
-          4.3. Alasan Aturan "Bom"
+          5.1. Alasan Aturan "Bom"
         </h3>
         <CapsaCardContainer
           title="Contoh Bom"
@@ -180,7 +105,7 @@ export default function CombinationRationale() {
       {/* 5-card combinations subsection */}
       <div className="mb-8">
         <h3 className="text-2xl font-semibold mb-4 text-primary">
-          4.4. Rasionalisasi Urutan Kombinasi 5-Kartu
+          5.2. Rasionalisasi Urutan Kombinasi 5-Kartu
         </h3>
         <p className="text-foreground/80 mb-4">
           Kombinasi lima kartu diurutkan berdasarkan peluang kemunculannya.
